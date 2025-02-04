@@ -1,9 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
-import { VStack, Image, Text, Center, Heading, ScrollView } from "native-base";
+import {
+  VStack,
+  Image,
+  Text,
+  Center,
+  Heading,
+  ScrollView,
+} from "@gluestack-ui/themed";
 
 import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
 
-import LogoSvg from "@assets/logo.svg";
+import Logo from "@assets/logo.svg";
 import BackgroundImg from "@assets/background.png";
 import { Input } from "@components/input";
 import { Button } from "@components/Button";
@@ -21,25 +28,24 @@ export function SignIn() {
     >
       <VStack flex={1}>
         <Image
+          w="$full"
+          h={624}
           source={BackgroundImg}
           defaultSource={BackgroundImg}
           alt="Pessoas treinando"
-          resizeMode="contain"
           position="absolute"
         ></Image>
 
-        <VStack flex={1} px={10} pb={16}>
-          <Center my={24}>
-            <LogoSvg />
-            <Text color="gray.100" fontSize="sm">
+        <VStack flex={1} px="$10" pb="$10">
+          <Center my="$24">
+            <Logo />
+            <Text color="$gray100" fontSize="$sm">
               Treine sua mente e o seu corpo
             </Text>
           </Center>
 
-          <Center>
-            <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-              Acesse sua conta
-            </Heading>
+          <Center gap="$2">
+            <Heading color="$gray100">Acesse sua conta</Heading>
             <Input
               placeholder="E-mail"
               keyboardType="email-address"
@@ -48,9 +54,8 @@ export function SignIn() {
             <Input placeholder="Senha" secureTextEntry />
             <Button title="Acessar"></Button>
           </Center>
-
-          <Center mt={24}>
-            <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
+          <Center flex={1} justifyContent="flex-end" mt="$4">
+            <Text color="$gray100" fontSize="$sm" mb="$3" fontFamily="$body">
               Ainda não tem acesso?
             </Text>
 

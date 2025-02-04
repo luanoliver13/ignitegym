@@ -1,15 +1,24 @@
 import { useNavigation } from "@react-navigation/native";
-import { VStack, Image, Text, Center, Heading, ScrollView } from "native-base";
+import {
+  VStack,
+  Image,
+  Text,
+  Center,
+  Heading,
+  ScrollView,
+} from "@gluestack-ui/themed";
 
-import LogoSvg from "@assets/logo.svg";
+import { AuthNavigatorRoutesProps } from "@routes/auth.routes";
+
+import Logo from "@assets/logo.svg";
 import BackgroundImg from "@assets/background.png";
 import { Input } from "@components/input";
 import { Button } from "@components/Button";
 export function SignUp() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
   function handleGoBack() {
-    navigation.goBack();
+    navigation.navigate("signIn");
   }
 
   return (
@@ -19,25 +28,24 @@ export function SignUp() {
     >
       <VStack flex={1}>
         <Image
+          w="$full"
+          h={624}
           source={BackgroundImg}
           defaultSource={BackgroundImg}
           alt="Pessoas treinando"
-          resizeMode="contain"
           position="absolute"
         ></Image>
 
-        <VStack px={10} pb={16}>
-          <Center my={24}>
-            <LogoSvg />
-            <Text color="gray.100" fontSize="sm">
+        <VStack flex={1} px="$10" pb="$10">
+          <Center my="$24">
+            <Logo />
+            <Text color="$gray100" fontSize="$sm">
               Treine sua mente e o seu corpo
             </Text>
           </Center>
 
-          <Center>
-            <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-              Crie sua conta
-            </Heading>
+          <Center gap="$2" flex={1}>
+            <Heading color="$gray100">Crie sua conta</Heading>
             <Input placeholder="Nome" />
             <Input
               placeholder="E-mail"
@@ -47,11 +55,10 @@ export function SignUp() {
             <Input placeholder="Senha" secureTextEntry />
             <Button title="Criar e acessar"></Button>
           </Center>
-
           <Button
             title="Voltar para o login"
             variant="outline"
-            mt={24}
+            mt="$12"
             onPress={handleGoBack}
           ></Button>
         </VStack>
